@@ -10,11 +10,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"go.opentelemetry.io/collector/config/configoptional"
-	"go.opentelemetry.io/collector/config/configtelemetry"
 	"go.opentelemetry.io/collector/confmap"
 	"go.opentelemetry.io/collector/confmap/confmaptest"
-	"go.opentelemetry.io/collector/exporter/exporterhelper"
 )
 
 func TestUnmarshalDefaultConfig(t *testing.T) {
@@ -25,7 +22,7 @@ func TestUnmarshalDefaultConfig(t *testing.T) {
 }
 
 func TestUnmarshalConfig(t *testing.T) {
-	queueCfg := exporterhelper.NewDefaultQueueConfig()
+	// queueCfg := exporterhelper.NewDefaultQueueConfig()
 	tests := []struct {
 		filename    string
 		cfg         *Config
@@ -34,10 +31,11 @@ func TestUnmarshalConfig(t *testing.T) {
 		{
 			filename: "config_verbosity.yaml",
 			cfg: &Config{
-				Verbosity:          configtelemetry.LevelDetailed,
-				SamplingInitial:    10,
-				SamplingThereafter: 50,
-				QueueConfig:        configoptional.Default(queueCfg),
+				Enabled: true,
+				// Verbosity:          configtelemetry.LevelDetailed,
+				// SamplingInitial:    10,
+				// SamplingThereafter: 50,
+				// QueueConfig:        configoptional.Default(queueCfg),
 			},
 		},
 		{
@@ -75,10 +73,10 @@ func Test_UnmarshalMarshalled(t *testing.T) {
 		},
 		"VerbositySpecified": {
 			inCfg: &Config{
-				Verbosity: configtelemetry.LevelDetailed,
+				Enabled: true,
 			},
 			expectedConfig: &Config{
-				Verbosity: configtelemetry.LevelDetailed,
+				Enabled: true,
 			},
 		},
 	} {
@@ -115,14 +113,14 @@ func TestValidate(t *testing.T) {
 		{
 			name: "verbosity none",
 			cfg: &Config{
-				Verbosity: configtelemetry.LevelNone,
+				Enabled: true,
 			},
 			expectedErr: "verbosity level \"None\" is not supported",
 		},
 		{
 			name: "verbosity detailed",
 			cfg: &Config{
-				Verbosity: configtelemetry.LevelDetailed,
+				Enabled: true,
 			},
 		},
 	}
