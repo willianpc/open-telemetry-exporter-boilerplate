@@ -1,7 +1,7 @@
 // Copyright The OpenTelemetry Authors
 // SPDX-License-Identifier: Apache-2.0
 
-package normal // import "go.opentelemetry.io/collector/exporter/debugexporter/internal/normal"
+package normal // import "github.com/willianpc/open-telemetry-exporter-boilerplate/internal/normal"
 
 import (
 	"fmt"

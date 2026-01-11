@@ -3,7 +3,7 @@
 
 //go:build windows
 
-package otlptext // import "go.opentelemetry.io/collector/exporter/debugexporter/internal/otlptext"
+package otlptext // import "github.com/willianpc/open-telemetry-exporter-boilerplate/internal/otlptext"
 
 import (
 	"errors"

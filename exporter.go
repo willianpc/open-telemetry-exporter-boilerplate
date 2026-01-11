@@ -8,9 +8,9 @@ import (
 
 	"go.uber.org/zap"
 
+	"github.com/willianpc/open-telemetry-exporter-boilerplate/internal/normal"
+	"github.com/willianpc/open-telemetry-exporter-boilerplate/internal/otlptext"
 	"go.opentelemetry.io/collector/config/configtelemetry"
-	"go.opentelemetry.io/collector/exporter/debugexporter/internal/normal"
-	"go.opentelemetry.io/collector/exporter/debugexporter/internal/otlptext"
 	"go.opentelemetry.io/collector/pdata/plog"
 	"go.opentelemetry.io/collector/pdata/pmetric"
 	"go.opentelemetry.io/collector/pdata/pprofile"
