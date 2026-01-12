@@ -1,7 +1,7 @@
 // Copyright The OpenTelemetry Authors
 // SPDX-License-Identifier: Apache-2.0
 
-package debugexporter // import "go.opentelemetry.io/collector/exporter/debugexporter"
+package boilerplateexporter // import "go.opentelemetry.io/collector/exporter/debugexporter"
 
 import (
 	"context"
@@ -9,10 +9,11 @@ import (
 
 	"go.uber.org/zap"
 
+	"github.com/willianpc/open-telemetry-exporter-boilerplate/internal/normal"
 	"go.opentelemetry.io/collector/pdata/ptrace"
 )
 
-type debugExporter struct {
+type boilerplateExporter struct {
 	enabled bool
 	// verbosity         configtelemetry.Level
 	// logger            *zap.Logger
@@ -22,7 +23,7 @@ type debugExporter struct {
 	// profilesMarshaler pprofile.Marshaler
 }
 
-func newDebugExporter(logger *zap.Logger, enabled bool) *debugExporter {
+func newDebugExporter(logger *zap.Logger, enabled bool) *boilerplateExporter {
 	// var logsMarshaler plog.Marshaler
 	// var metricsMarshaler pmetric.Marshaler
 	var tracesMarshaler ptrace.Marshaler
@@ -35,10 +36,10 @@ func newDebugExporter(logger *zap.Logger, enabled bool) *debugExporter {
 	// } else {
 	// 	logsMarshaler = normal.NewNormalLogsMarshaler()
 	// 	metricsMarshaler = normal.NewNormalMetricsMarshaler()
-	// 	tracesMarshaler = normal.NewNormalTracesMarshaler()
+	tracesMarshaler = normal.NewNormalTracesMarshaler()
 	// 	profilesMarshaler = normal.NewNormalProfilesMarshaler()
 	// }
-	return &debugExporter{
+	return &boilerplateExporter{
 		enabled: enabled,
 		// verbosity:         verbosity,
 		// logger:            logger,
@@ -49,7 +50,7 @@ func newDebugExporter(logger *zap.Logger, enabled bool) *debugExporter {
 	}
 }
 
-func (s *debugExporter) pushTraces(_ context.Context, td ptrace.Traces) error {
+func (s *boilerplateExporter) pushTraces(_ context.Context, td ptrace.Traces) error {
 	// s.logger.Info("Traces",
 	// 	zap.Int("resource spans", td.ResourceSpans().Len()),
 	// 	zap.Int("spans", td.SpanCount()))

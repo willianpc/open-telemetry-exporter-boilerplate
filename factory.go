@@ -1,7 +1,7 @@
 // Copyright The OpenTelemetry Authors
 // SPDX-License-Identifier: Apache-2.0
 
-package debugexporter // import "go.opentelemetry.io/collector/exporter/debugexporter"
+package boilerplateexporter // import "go.opentelemetry.io/collector/exporter/debugexporter"
 
 import (
 	"context"
@@ -19,12 +19,12 @@ import (
 )
 
 // The value of "type" key in configuration.
-var componentType = component.MustNewType("debug")
+var componentType = component.MustNewType("boilerplate")
 
-const (
-	defaultSamplingInitial    = 2
-	defaultSamplingThereafter = 1
-)
+// const (
+// 	defaultSamplingInitial    = 2
+// 	defaultSamplingThereafter = 1
+// )
 
 // NewFactory creates and returns a new factory for the Debug exporter.
 func NewFactory() exporter.Factory {

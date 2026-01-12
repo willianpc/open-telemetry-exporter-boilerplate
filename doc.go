@@ -3,5 +3,5 @@
 
 //go:generate mdatagen metadata.yaml
 
-// Package debugexporter exports data to console as logs.
-package debugexporter // import "go.opentelemetry.io/collector/exporter/debugexporter"
+// package boilerplateexporter exports data to console as logs.
+package boilerplateexporter // import "go.opentelemetry.io/collector/exporter/debugexporter"

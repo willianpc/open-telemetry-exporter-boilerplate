@@ -1,7 +1,7 @@
 // Copyright The OpenTelemetry Authors
 // SPDX-License-Identifier: Apache-2.0
 
-package debugexporter // import "go.opentelemetry.io/collector/exporter/debugexporter"
+package boilerplateexporter // import "go.opentelemetry.io/collector/exporter/debugexporter"
 
 import (
 	"context"
